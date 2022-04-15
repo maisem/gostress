@@ -1,4 +1,4 @@
-// The stress tool runs a `go test` target multiple times.
+// The gostress tool runs a `go test` target multiple times.
 // It is a drop-in replacement for `go test`.
 package main
 

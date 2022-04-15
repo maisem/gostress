@@ -1,3 +1,3 @@
-module github.com/maisem/stress
+module github.com/maisem/gostress
 
 go 1.17
