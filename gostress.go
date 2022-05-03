@@ -48,10 +48,11 @@ func main() {
 	if err != nil {
 		log.Fatal(err)
 	}
-	go read(r)
-	if err := cmd.Run(); err != nil {
+	if err := cmd.Start(); err != nil {
 		log.Fatal(err)
 	}
+	read(r)
+	cmd.Wait()
 }
 
 func read(r io.Reader) {
