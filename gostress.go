@@ -43,7 +43,11 @@ func main() {
 	}
 	args := append([]string{"test"}, fmt.Sprintf("-count=%d", *count), "-failfast", "-json")
 	args = append(args, flag.Args()...)
-	cmd := exec.Command("go", args...)
+	path, err := exec.LookPath("go")
+	if err != nil {
+		log.Fatal(err)
+	}
+	cmd := exec.Command(path, args...)
 	r, err := cmd.StdoutPipe()
 	if err != nil {
 		log.Fatal(err)
