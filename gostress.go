@@ -48,6 +48,7 @@ func main() {
 	if err != nil {
 		log.Fatal(err)
 	}
+	cmd.Stderr = os.Stderr
 	if err := cmd.Start(); err != nil {
 		log.Fatal(err)
 	}
