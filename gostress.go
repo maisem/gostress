@@ -101,11 +101,12 @@ func read(r io.Reader) {
 		default:
 			continue
 		}
-		s := fmt.Sprintf("%v: %v/%v %v", k, tr.success, tr.attempts, dur)
+		s := fmt.Sprintf("%v: %v/%v %v", k, tr.success, tr.attempts, dur.Round(10*time.Microsecond))
 		newLen, _ := fmt.Printf("\r%v", s)
 		if newLen < lastLen {
 			fmt.Print(strings.Repeat(" ", lastLen-newLen))
 		}
+		lastLen = newLen
 		if lastK != k {
 			if lastK != "" {
 				fmt.Println()
